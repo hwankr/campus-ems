@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-05-16",
+  "method": "영남대학교 공개 공시값 기반 전력 사용량 보정 추정",
+  "data_status": "검침 원자료가 아니라 공개 공시 온실가스 자료를 기준으로 합성 월별/건물별 패턴을 보정한 추정 데이터",
+  "calibration": {
+    "source_synthetic_2024_kwh": 120960318,
+    "target_2024_kwh": 29341824,
+    "scale_factor": 0.24257396545534876,
+    "target_basis": "2024년 영남대학교 총 온실가스 실제배출량에 2022년 공개 Scope II 비중을 적용한 뒤 전력 배출계수로 kWh 환산",
+    "scope2_share_from_2022": 0.8210533199978469,
+    "yu_2024_total_ghg_tco2eq": 16321,
+    "yu_2022_total_ghg_tco2eq": 15810.447,
+    "yu_2022_scope2_tco2eq": 12981.22
+  },
+  "assumptions": {
+    "co2_factor_kg_per_kwh": 0.4567,
+    "education_rate_krw_per_kwh": 143,
+    "monthly_and_building_distribution": "기존 합성 데이터의 월별 계절성 및 건물별 상대 비중은 유지하고 전체 규모만 보정",
+    "cost_model": "기본요금, 수요요금, 부가세 등 실제 청구 구조는 제외하고 평균 교육용 판매단가로 단순 환산",
+    "future_months": "2025년 이후 값은 실제 검침이 아니라 보정된 시뮬레이션 연장치"
+  },
+  "calibrated_totals": {
+    "2024": {
+      "kwh": 29341824,
+      "gwh": 29.341824,
+      "cost_krw": 4195880832,
+      "co2_kg": 13400426
+    },
+    "recent_12_months_2025_05_to_2026_04": {
+      "kwh": 30429303,
+      "gwh": 30.429303,
+      "cost_krw": 4351390329,
+      "co2_kg": 13897067
+    }
+  },
+  "sources": [
+    {
+      "name": "2024 온실가스 배출량 관리 및 공시",
+      "org": "영남대학교 사회공헌단 ESG운영팀",
+      "url": "https://www.yu.ac.kr/volunteer/esg/sdgs-esg-active.do?articleNo=229332368&mode=view&title=2024+%EC%98%A8%EC%8B%A4%EA%B0%80%EC%8A%A4+%EB%B0%B0%EC%B6%9C%EB%9F%89+%EA%B4%80%EB%A6%AC+%EB%B0%8F+%EA%B3%B5%EC%8B%9C%3A+2014%EB%85%84+%EB%8F%84%EC%9E%85%28Greenhouse+Gas+Emissions+Management+and+Disclosure%3ASince+2014%29",
+      "use": "2024년 실제 온실가스 배출량 16,321 tCO2eq"
+    },
+    {
+      "name": "2022년 환경정보 등록 항목별 정보",
+      "org": "환경정보공개시스템",
+      "url": "https://www.env-info.kr/user/register/viewUserSearch2.do?COMP_ID=00000000000000504099&OPEN_YN=Y&YEAR=2022",
+      "use": "영남대학교 2022년 총배출량 및 Scope II 간접배출량 비중"
+    },
+    {
+      "name": "공공기관 설치의무화제도",
+      "org": "한국에너지공단 신재생에너지센터",
+      "url": "https://www.knrec.or.kr/biz/introduce/new_policy/intro_govinstall.do?gubun=C",
+      "use": "교육연구시설 단위에너지사용량 비교 기준"
+    },
+    {
+      "name": "2024년 교육용 전력 판매단가 보도",
+      "org": "이데일리/국회 공개자료 보도",
+      "url": "https://v.daum.net/v/20250408165815786",
+      "use": "교육용 평균 판매단가 143원/kWh"
+    }
+  ]
+}
