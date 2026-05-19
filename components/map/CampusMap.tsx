@@ -3,23 +3,106 @@
 import { RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
+import type { CampusMapMode } from "@/components/header/CampusHeader";
 import { YU_CENTER, YU_DEFAULT_BEARING, YU_DEFAULT_PITCH, YU_DEFAULT_ZOOM } from "@/lib/constants";
 import { loadCampusGeoJSON } from "@/lib/load-geojson";
+import type { BuildingProperties } from "@/types/building";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-const RESET_VIEW_LABEL = "\uC9C0\uB3C4 \uC2DC\uC810 \uCD08\uAE30\uD654";
-type MapboxMap = import("mapbox-gl").Map;
+const BUILDING_SOURCE_ID = "buildings";
+const BUILDING_LAYER_IDS = ["buildings-3d-fallback", "buildings-3d"] as const;
+const SELECTED_BUILDING_LINE_ID = "selected-building-outline";
 
-export function CampusMap() {
+type MapboxMap = import("mapbox-gl").Map;
+type MapLayerMouseEvent = import("mapbox-gl").MapLayerMouseEvent;
+type DataDrivenPropertyValueSpecification<T> =
+  import("mapbox-gl").DataDrivenPropertyValueSpecification<T>;
+
+interface CampusMapProps {
+  selectedBuilding: BuildingProperties | null;
+  mode: CampusMapMode;
+  onBuildingSelect: (building: BuildingProperties) => void;
+}
+
+const potentialColorExpression: DataDrivenPropertyValueSpecification<string> = [
+  "interpolate",
+  ["linear"],
+  ["coalesce", ["to-number", ["get", "bArea_m2"]], 0],
+  0,
+  "#334155",
+  500,
+  "#475569",
+  1500,
+  "#7c9eb8",
+  3500,
+  "#c89b6b",
+  7000,
+  "#e07b3f",
+  12000,
+  "#c0392b",
+];
+
+const potentialHeightExpression: DataDrivenPropertyValueSpecification<number> = [
+  "interpolate",
+  ["linear"],
+  ["coalesce", ["to-number", ["get", "bArea_m2"]], 0],
+  100,
+  8,
+  5000,
+  50,
+  15000,
+  60,
+];
+
+const usageColorExpression: DataDrivenPropertyValueSpecification<string> = [
+  "interpolate",
+  ["linear"],
+  ["coalesce", ["to-number", ["get", "floor_count"]], 0],
+  0,
+  "#334155",
+  1,
+  "#3b5368",
+  3,
+  "#2f7f8f",
+  6,
+  "#d08c3f",
+  12,
+  "#dc5f3d",
+  20,
+  "#b91c1c",
+];
+
+const usageHeightExpression: DataDrivenPropertyValueSpecification<number> = [
+  "+",
+  12,
+  ["*", ["coalesce", ["to-number", ["get", "floor_count"]], 0], 3.5],
+];
+
+function getPaintExpressions(mode: CampusMapMode) {
+  if (mode === "usage") {
+    return {
+      color: usageColorExpression,
+      height: usageHeightExpression,
+    };
+  }
+
+  return {
+    color: potentialColorExpression,
+    height: potentialHeightExpression,
+  };
+}
+
+export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMapProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<MapboxMap | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isMapReady, setIsMapReady] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
 
     if (!MAPBOX_TOKEN) {
-      setErrorMessage("Set NEXT_PUBLIC_MAPBOX_TOKEN in .env.local, then restart the dev server.");
+      setErrorMessage(".env.local에 NEXT_PUBLIC_MAPBOX_TOKEN 값을 입력한 뒤 dev 서버를 다시 시작하세요.");
       return;
     }
 
@@ -46,7 +129,6 @@ export function CampusMap() {
         });
 
         mapRef.current = map;
-        // Debug only: remove before the final presentation.
         (window as Window & { __map?: MapboxMap }).__map = map;
 
         map.addControl(new mapboxgl.NavigationControl({ visualizePitch: true }), "top-right");
@@ -69,42 +151,25 @@ export function CampusMap() {
             const geojson = await loadCampusGeoJSON();
             if (disposed) return;
 
-            map.addSource("buildings", {
+            map.addSource(BUILDING_SOURCE_ID, {
               type: "geojson",
               data: geojson,
             });
 
+            const initialPaint = getPaintExpressions("potential");
+
             map.addLayer({
               id: "buildings-3d-fallback",
               type: "fill-extrusion",
-              source: "buildings",
+              source: BUILDING_SOURCE_ID,
               filter: ["==", ["get", "polygon_source"], "fallback_square"],
               paint: {
-                "fill-extrusion-color": [
-                  "interpolate",
-                  ["linear"],
-                  ["coalesce", ["to-number", ["get", "bArea_m2"]], 0],
-                  0,
-                  "#334155",
-                  500,
-                  "#475569",
-                  1500,
-                  "#7c9eb8",
-                  3500,
-                  "#c89b6b",
-                  7000,
-                  "#e07b3f",
-                  12000,
-                  "#c0392b",
-                ],
-                "fill-extrusion-height": [
-                  "+",
-                  12,
-                  ["*", ["coalesce", ["to-number", ["get", "floor_count"]], 0], 3.5],
-                ],
+                "fill-extrusion-color": initialPaint.color,
+                "fill-extrusion-height": initialPaint.height,
                 "fill-extrusion-base": 0,
                 "fill-extrusion-opacity": 0.45,
                 "fill-extrusion-vertical-gradient": true,
+                "fill-extrusion-color-transition": { duration: 800, delay: 0 },
                 "fill-extrusion-height-transition": { duration: 800, delay: 0 },
               },
             });
@@ -112,42 +177,35 @@ export function CampusMap() {
             map.addLayer({
               id: "buildings-3d",
               type: "fill-extrusion",
-              source: "buildings",
+              source: BUILDING_SOURCE_ID,
               filter: ["!=", ["get", "polygon_source"], "fallback_square"],
               paint: {
-                "fill-extrusion-color": [
-                  "interpolate",
-                  ["linear"],
-                  ["coalesce", ["to-number", ["get", "bArea_m2"]], 0],
-                  0,
-                  "#334155",
-                  500,
-                  "#475569",
-                  1500,
-                  "#7c9eb8",
-                  3500,
-                  "#c89b6b",
-                  7000,
-                  "#e07b3f",
-                  12000,
-                  "#c0392b",
-                ],
-                "fill-extrusion-height": [
-                  "+",
-                  12,
-                  ["*", ["coalesce", ["to-number", ["get", "floor_count"]], 0], 3.5],
-                ],
+                "fill-extrusion-color": initialPaint.color,
+                "fill-extrusion-height": initialPaint.height,
                 "fill-extrusion-base": 0,
                 "fill-extrusion-opacity": 0.88,
                 "fill-extrusion-vertical-gradient": true,
+                "fill-extrusion-color-transition": { duration: 800, delay: 0 },
                 "fill-extrusion-height-transition": { duration: 800, delay: 0 },
+              },
+            });
+
+            map.addLayer({
+              id: SELECTED_BUILDING_LINE_ID,
+              type: "line",
+              source: BUILDING_SOURCE_ID,
+              filter: ["==", ["get", "bNo"], ""],
+              paint: {
+                "line-color": "#38bdf8",
+                "line-width": ["interpolate", ["linear"], ["zoom"], 15, 2, 18, 5],
+                "line-opacity": 0.95,
               },
             });
 
             map.addLayer({
               id: "buildings-label",
               type: "symbol",
-              source: "buildings",
+              source: BUILDING_SOURCE_ID,
               minzoom: 15,
               layout: {
                 "text-field": ["coalesce", ["get", "bName"], ""],
@@ -167,27 +225,34 @@ export function CampusMap() {
               },
             });
 
-            map.on("mouseenter", "buildings-3d", () => {
-              map.getCanvas().style.cursor = "pointer";
+            const handleBuildingClick = (event: MapLayerMouseEvent) => {
+              const feature = event.features?.[0];
+              if (feature?.properties) {
+                onBuildingSelect(feature.properties as BuildingProperties);
+              }
+            };
+
+            BUILDING_LAYER_IDS.forEach((layerId) => {
+              map.on("click", layerId, handleBuildingClick);
+              map.on("mouseenter", layerId, () => {
+                map.getCanvas().style.cursor = "pointer";
+              });
+              map.on("mouseleave", layerId, () => {
+                map.getCanvas().style.cursor = "";
+              });
             });
 
-            map.on("mouseenter", "buildings-3d-fallback", () => {
-              map.getCanvas().style.cursor = "pointer";
-            });
-
-            map.on("mouseleave", "buildings-3d", () => {
-              map.getCanvas().style.cursor = "";
-            });
-
-            map.on("mouseleave", "buildings-3d-fallback", () => {
-              map.getCanvas().style.cursor = "";
-            });
+            setIsMapReady(true);
           } catch (error) {
-            setErrorMessage(error instanceof Error ? error.message : "Failed to load campus map data.");
+            setErrorMessage(
+              error instanceof Error ? error.message : "캠퍼스 지도 데이터를 불러오지 못했습니다.",
+            );
           }
         });
       } catch (error) {
-        setErrorMessage(error instanceof Error ? error.message : "Failed to load campus map data.");
+        setErrorMessage(
+          error instanceof Error ? error.message : "캠퍼스 지도 데이터를 불러오지 못했습니다.",
+        );
       }
     }
 
@@ -198,8 +263,47 @@ export function CampusMap() {
       delete (window as Window & { __map?: MapboxMap }).__map;
       mapRef.current?.remove();
       mapRef.current = null;
+      setIsMapReady(false);
     };
-  }, []);
+  }, [onBuildingSelect]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !isMapReady) return;
+
+    const paint = getPaintExpressions(mode);
+
+    BUILDING_LAYER_IDS.forEach((layerId) => {
+      if (!map.getLayer(layerId)) return;
+
+      map.setPaintProperty(layerId, "fill-extrusion-color", paint.color);
+      map.setPaintProperty(layerId, "fill-extrusion-height", paint.height);
+    });
+  }, [isMapReady, mode]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !isMapReady || !map.getLayer(SELECTED_BUILDING_LINE_ID)) return;
+
+    map.setFilter(SELECTED_BUILDING_LINE_ID, [
+      "==",
+      ["get", "bNo"],
+      selectedBuilding?.bNo ?? "",
+    ]);
+
+    const lng = selectedBuilding?.centerLng;
+    const lat = selectedBuilding?.centerLat;
+    if (typeof lng !== "number" || typeof lat !== "number") return;
+
+    map.stop();
+    map.easeTo({
+      center: [lng, lat],
+      zoom: Math.max(map.getZoom(), 17),
+      pitch: YU_DEFAULT_PITCH,
+      bearing: YU_DEFAULT_BEARING,
+      duration: 800,
+    });
+  }, [isMapReady, selectedBuilding]);
 
   const resetMapView = () => {
     const map = mapRef.current;
@@ -216,13 +320,13 @@ export function CampusMap() {
   };
 
   return (
-    <section className="relative h-screen w-screen overflow-hidden bg-slate-950">
+    <section className="relative h-full w-full overflow-hidden bg-slate-950">
       <div ref={containerRef} className="h-full w-full" />
 
       <button
         type="button"
-        aria-label={RESET_VIEW_LABEL}
-        title={RESET_VIEW_LABEL}
+        aria-label="지도 시점 초기화"
+        title="지도 시점 초기화"
         onClick={resetMapView}
         className="absolute right-2 top-[100px] z-10 flex h-[29px] w-[29px] items-center justify-center border border-slate-700 bg-slate-950/90 text-slate-100 shadow-lg transition-colors hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400"
       >
@@ -230,7 +334,7 @@ export function CampusMap() {
       </button>
 
       {errorMessage ? (
-        <div className="absolute inset-0 z-20 flex items-center justify-center bg-slate-950/92 px-6 text-center">
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-slate-950/90 px-6 text-center">
           <p className="max-w-md text-sm font-medium leading-6 text-slate-200">{errorMessage}</p>
         </div>
       ) : null}
