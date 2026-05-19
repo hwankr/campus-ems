@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 import type { CampusMapMode } from "@/components/header/CampusHeader";
 import { YU_CENTER, YU_DEFAULT_BEARING, YU_DEFAULT_PITCH, YU_DEFAULT_ZOOM } from "@/lib/constants";
+import { getBuildingAnnualUsage } from "@/lib/load-data";
 import { loadCampusGeoJSON } from "@/lib/load-geojson";
 import type { BuildingProperties } from "@/types/building";
 
@@ -57,25 +58,25 @@ const potentialHeightExpression: DataDrivenPropertyValueSpecification<number> = 
 const usageColorExpression: DataDrivenPropertyValueSpecification<string> = [
   "interpolate",
   ["linear"],
-  ["coalesce", ["to-number", ["get", "floor_count"]], 0],
+  ["coalesce", ["to-number", ["get", "annual_kwh"]], 0],
   0,
   "#334155",
-  1,
-  "#3b5368",
-  3,
-  "#2f7f8f",
-  6,
-  "#d08c3f",
-  12,
-  "#dc5f3d",
-  20,
-  "#b91c1c",
+  50000,
+  "#64748b",
+  200000,
+  "#7c9eb8",
+  600000,
+  "#c89b6b",
+  1000000,
+  "#e07b3f",
+  2500000,
+  "#c0392b",
 ];
 
 const usageHeightExpression: DataDrivenPropertyValueSpecification<number> = [
   "+",
   12,
-  ["*", ["coalesce", ["to-number", ["get", "floor_count"]], 0], 3.5],
+  ["/", ["coalesce", ["to-number", ["get", "annual_kwh"]], 0], 80000],
 ];
 
 function getPaintExpressions(mode: CampusMapMode) {
@@ -148,8 +149,15 @@ export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMa
               position: [1.5, 210, 30],
             });
 
-            const geojson = await loadCampusGeoJSON();
+            const [geojson, usageMap] = await Promise.all([
+              loadCampusGeoJSON(),
+              getBuildingAnnualUsage(),
+            ]);
             if (disposed) return;
+
+            geojson.features.forEach((feature) => {
+              feature.properties.annual_kwh = usageMap[feature.properties.bNo] ?? 0;
+            });
 
             map.addSource(BUILDING_SOURCE_ID, {
               type: "geojson",
