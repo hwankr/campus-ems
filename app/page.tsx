@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { AppNav } from "@/components/AppNav";
 import { CampusHeader, type CampusMapMode } from "@/components/header/CampusHeader";
 import { CampusMap } from "@/components/map/CampusMap";
 import { BuildingPanel } from "@/components/panel/BuildingPanel";
@@ -13,6 +14,7 @@ export default function Home() {
 
   return (
     <main className="flex h-screen flex-col overflow-hidden bg-slate-950">
+      <AppNav />
       <CampusHeader
         selectedBuilding={selectedBuilding}
         mode={mode}
