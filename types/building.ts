@@ -16,6 +16,10 @@ export interface BuildingProperties {
   bTotalFloorArea_m2: number | null;
   floor_count: number;
   annual_kwh?: number;
+  diagnosis_severity?: string;
+  current_kwh?: number;
+  expected_kwh?: number;
+  delta_pct?: number;
   polygon_source: PolygonSource;
   centerLat?: number;
   centerLng?: number;

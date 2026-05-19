@@ -8,10 +8,12 @@ import { YU_CENTER, YU_DEFAULT_BEARING, YU_DEFAULT_PITCH, YU_DEFAULT_ZOOM } from
 import { getBuildingAnnualUsage } from "@/lib/load-data";
 import { loadCampusGeoJSON } from "@/lib/load-geojson";
 import type { BuildingProperties } from "@/types/building";
+import type { RealtimeDiagnosisRow } from "@/types/realtime";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 const BUILDING_SOURCE_ID = "buildings";
 const BUILDING_LAYER_IDS = ["buildings-3d-fallback", "buildings-3d"] as const;
+const AI_RECOMMENDED_LINE_ID = "buildings-ai-recommended";
 const SELECTED_BUILDING_LINE_ID = "selected-building-outline";
 
 type MapboxMap = import("mapbox-gl").Map;
@@ -23,6 +25,8 @@ interface CampusMapProps {
   selectedBuilding: BuildingProperties | null;
   mode: CampusMapMode;
   onBuildingSelect: (building: BuildingProperties) => void;
+  recommendedBuildingNos?: string[];
+  realtimeDiagnosisRows?: RealtimeDiagnosisRow[];
 }
 
 const potentialColorExpression: DataDrivenPropertyValueSpecification<string> = [
@@ -79,7 +83,34 @@ const usageHeightExpression: DataDrivenPropertyValueSpecification<number> = [
   ["/", ["coalesce", ["to-number", ["get", "annual_kwh"]], 0], 80000],
 ];
 
+const diagnosisColorExpression: DataDrivenPropertyValueSpecification<string> = [
+  "match",
+  ["get", "diagnosis_severity"],
+  "critical",
+  "#ef4444",
+  "high",
+  "#f97316",
+  "normal",
+  "#38bdf8",
+  "low",
+  "#64748b",
+  "#334155",
+];
+
+const diagnosisHeightExpression: DataDrivenPropertyValueSpecification<number> = [
+  "+",
+  18,
+  ["*", ["max", 0, ["coalesce", ["to-number", ["get", "current_kwh"]], 0]], 0.65],
+];
+
 function getPaintExpressions(mode: CampusMapMode) {
+  if (mode === "diagnosis") {
+    return {
+      color: diagnosisColorExpression,
+      height: diagnosisHeightExpression,
+    };
+  }
+
   if (mode === "usage") {
     return {
       color: usageColorExpression,
@@ -93,7 +124,60 @@ function getPaintExpressions(mode: CampusMapMode) {
   };
 }
 
-export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMapProps) {
+const severityMeta: Record<
+  RealtimeDiagnosisRow["severity"],
+  { label: string; dot: string; strip: string; badge: string }
+> = {
+  critical: {
+    label: "점검 필요",
+    dot: "bg-red-500",
+    strip: "bg-red-500",
+    badge: "border-red-400/40 bg-red-500/15 text-red-100",
+  },
+  high: {
+    label: "높음",
+    dot: "bg-amber-300",
+    strip: "bg-amber-300",
+    badge: "border-amber-300/40 bg-amber-300/15 text-amber-100",
+  },
+  normal: {
+    label: "정상",
+    dot: "bg-sky-400",
+    strip: "bg-sky-400",
+    badge: "border-sky-300/40 bg-sky-300/15 text-sky-100",
+  },
+  low: {
+    label: "낮음",
+    dot: "bg-slate-500",
+    strip: "bg-slate-500",
+    badge: "border-slate-500/40 bg-slate-500/15 text-slate-200",
+  },
+};
+
+function formatKwh(value: number): string {
+  return Math.round(value).toLocaleString("ko-KR");
+}
+
+function formatPct(value: number): string {
+  return `${value > 0 ? "+" : ""}${value.toFixed(1)}%`;
+}
+
+function formatKst(timestamp?: string): string {
+  if (!timestamp) return "1H";
+  return new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(timestamp));
+}
+
+export function CampusMap({
+  selectedBuilding,
+  mode,
+  onBuildingSelect,
+  recommendedBuildingNos = [],
+  realtimeDiagnosisRows = [],
+}: CampusMapProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<MapboxMap | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -156,7 +240,8 @@ export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMa
             if (disposed) return;
 
             geojson.features.forEach((feature) => {
-              feature.properties.annual_kwh = usageMap[feature.properties.bNo] ?? 0;
+              feature.properties.annual_kwh =
+                usageMap[feature.properties.bNo] ?? 0;
             });
 
             map.addSource(BUILDING_SOURCE_ID, {
@@ -195,6 +280,18 @@ export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMa
                 "fill-extrusion-vertical-gradient": true,
                 "fill-extrusion-color-transition": { duration: 800, delay: 0 },
                 "fill-extrusion-height-transition": { duration: 800, delay: 0 },
+              },
+            });
+
+            map.addLayer({
+              id: AI_RECOMMENDED_LINE_ID,
+              type: "line",
+              source: BUILDING_SOURCE_ID,
+              filter: ["in", ["get", "bNo"], ["literal", []]],
+              paint: {
+                "line-color": "#a3e635",
+                "line-width": ["interpolate", ["linear"], ["zoom"], 15, 2, 18, 6],
+                "line-opacity": 0.9,
               },
             });
 
@@ -291,6 +388,33 @@ export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMa
 
   useEffect(() => {
     const map = mapRef.current;
+    const source = map?.getSource(BUILDING_SOURCE_ID) as
+      | import("mapbox-gl").GeoJSONSource
+      | undefined;
+    if (!map || !source || !isMapReady) return;
+
+    void Promise.all([loadCampusGeoJSON(), getBuildingAnnualUsage()]).then(
+      ([geojson, usageMap]) => {
+        const diagnosisMap = new Map(
+          realtimeDiagnosisRows.map((row) => [row.bNo, row]),
+        );
+
+        geojson.features.forEach((feature) => {
+          const diagnosis = diagnosisMap.get(feature.properties.bNo);
+          feature.properties.annual_kwh = usageMap[feature.properties.bNo] ?? 0;
+          feature.properties.diagnosis_severity = diagnosis?.severity;
+          feature.properties.current_kwh = diagnosis?.currentKwh;
+          feature.properties.expected_kwh = diagnosis?.expectedKwh;
+          feature.properties.delta_pct = diagnosis?.deltaPct;
+        });
+
+        source.setData(geojson);
+      },
+    );
+  }, [isMapReady, realtimeDiagnosisRows]);
+
+  useEffect(() => {
+    const map = mapRef.current;
     if (!map || !isMapReady || !map.getLayer(SELECTED_BUILDING_LINE_ID)) return;
 
     map.setFilter(SELECTED_BUILDING_LINE_ID, [
@@ -313,6 +437,17 @@ export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMa
     });
   }, [isMapReady, selectedBuilding]);
 
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !isMapReady || !map.getLayer(AI_RECOMMENDED_LINE_ID)) return;
+
+    map.setFilter(AI_RECOMMENDED_LINE_ID, [
+      "in",
+      ["get", "bNo"],
+      ["literal", recommendedBuildingNos],
+    ]);
+  }, [isMapReady, recommendedBuildingNos]);
+
   const resetMapView = () => {
     const map = mapRef.current;
     if (!map) return;
@@ -327,6 +462,21 @@ export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMa
     });
   };
 
+  const selectedDiagnosisRow =
+    selectedBuilding && mode === "diagnosis"
+      ? realtimeDiagnosisRows.find((row) => row.bNo === selectedBuilding.bNo)
+      : null;
+  const selectedBuildingName = selectedBuilding?.bName || selectedBuilding?.bNo || "";
+  const diagnosisCounts = realtimeDiagnosisRows.reduce(
+    (counts, row) => {
+      counts[row.severity] += 1;
+      return counts;
+    },
+    { critical: 0, high: 0, normal: 0, low: 0 } as Record<RealtimeDiagnosisRow["severity"], number>,
+  );
+  const outOfRangeCount = diagnosisCounts.critical + diagnosisCounts.high;
+  const legendTimestamp = realtimeDiagnosisRows[0]?.timestamp;
+
   return (
     <section className="relative h-full w-full overflow-hidden bg-slate-950">
       <div ref={containerRef} className="h-full w-full" />
@@ -340,6 +490,90 @@ export function CampusMap({ selectedBuilding, mode, onBuildingSelect }: CampusMa
       >
         <RotateCcw className="h-4 w-4" aria-hidden="true" />
       </button>
+
+      {mode === "diagnosis" && selectedDiagnosisRow ? (
+        <div className="absolute left-4 top-[148px] z-10 w-[min(22rem,calc(100%-2rem))] overflow-hidden rounded-lg border border-white/5 bg-slate-950/85 text-xs text-slate-200 shadow-2xl shadow-slate-950/40 ring-1 ring-inset ring-white/[0.04] backdrop-blur-md sm:top-[140px]">
+          <div className={`h-[3px] ${severityMeta[selectedDiagnosisRow.severity].strip}`} />
+          <div className="p-3">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
+                  Selected Asset
+                </p>
+                <p className="mt-1 truncate text-sm font-semibold text-white">
+                  {selectedBuildingName}
+                </p>
+              </div>
+              <span
+                className={`shrink-0 rounded-full border px-2 py-1 text-[10px] ${severityMeta[selectedDiagnosisRow.severity].badge}`}
+              >
+                {severityMeta[selectedDiagnosisRow.severity].label}
+              </span>
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <div className="rounded-md border border-white/5 bg-white/[0.03] p-2">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-slate-500">
+                  Current
+                </p>
+                <p className="mt-1 font-mono text-lg text-lime-200 tabular-nums">
+                  {formatKwh(selectedDiagnosisRow.currentKwh)}
+                </p>
+              </div>
+              <div className="rounded-md border border-white/5 bg-white/[0.03] p-2">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-slate-500">
+                  Forecast
+                </p>
+                <p className="mt-1 font-mono text-lg text-cyan-100 tabular-nums">
+                  {formatKwh(selectedDiagnosisRow.expectedKwh)}
+                </p>
+              </div>
+            </div>
+            <p className="mt-2 font-mono text-xs text-slate-300 tabular-nums">
+              유사조건 대비{" "}
+              <span className={selectedDiagnosisRow.deltaPct >= 0 ? "text-amber-100" : "text-sky-100"}>
+                {formatPct(selectedDiagnosisRow.deltaPct)}
+              </span>
+            </p>
+          </div>
+        </div>
+      ) : null}
+
+      {mode === "diagnosis" ? (
+        <div className="absolute bottom-4 left-4 z-10 w-[min(23rem,calc(100%-2rem))] rounded-lg border border-white/5 bg-slate-950/85 p-3 text-xs text-slate-200 shadow-2xl shadow-slate-950/40 ring-1 ring-inset ring-white/[0.04] backdrop-blur-md">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-lime-300/30 bg-lime-300/10 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-lime-200">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-lime-300 opacity-70 animate-ping" />
+                <span className="relative inline-flex size-2 rounded-full bg-lime-300" />
+              </span>
+              LIVE
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-400">
+              1H · {formatKst(legendTimestamp)}
+            </span>
+            <span className="rounded-full border border-red-400/30 bg-red-500/10 px-2 py-1 font-mono text-[10px] text-red-100 tabular-nums">
+              범위 이탈 {outOfRangeCount}건
+            </span>
+          </div>
+          <p className="mt-2 truncate text-slate-400">
+            합성 기상 기준 · 유사 조건 평균 대비 실시간 진단
+          </p>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {(Object.keys(severityMeta) as Array<RealtimeDiagnosisRow["severity"]>).map((severity) => (
+              <span
+                key={severity}
+                className="flex items-center justify-between rounded-md border border-white/5 bg-white/[0.03] px-2 py-1.5"
+              >
+                <span className="flex items-center gap-2">
+                  <i className={`size-2.5 rounded-full ${severityMeta[severity].dot}`} />
+                  {severityMeta[severity].label}
+                </span>
+                <span className="font-mono text-slate-400 tabular-nums">{diagnosisCounts[severity]}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       {errorMessage ? (
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-slate-950/90 px-6 text-center">

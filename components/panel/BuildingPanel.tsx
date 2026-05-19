@@ -13,17 +13,21 @@ import {
 } from "recharts";
 
 import type { CampusMapMode } from "@/components/header/CampusHeader";
+import { BuildingAIInsight } from "@/components/panel/BuildingAIInsight";
 import {
   ROOF_COVERAGE_RATIO,
   SOLAR_PANEL_KWH_PER_M2_YEAR,
 } from "@/lib/constants";
-import type { MonthlyUsageChartRow } from "@/lib/electricity-calculations";
 import { getBuildingElectricity } from "@/lib/load-electricity";
+import type { MonthlyUsageChartRow } from "@/lib/electricity-calculations";
+import { getRealtimeSeverityLabel } from "@/lib/realtime-diagnosis";
 import type { BuildingProperties } from "@/types/building";
+import type { RealtimeDiagnosisRow } from "@/types/realtime";
 
 interface BuildingPanelProps {
   selectedBuilding: BuildingProperties | null;
   mode: CampusMapMode;
+  diagnosisRow?: RealtimeDiagnosisRow | null;
 }
 
 interface MetaRow {
@@ -73,7 +77,11 @@ function getDisplaySelfSufficiencyPercent(rawPercent: number): number {
   return Math.ceil(rawPercent / 5) * 5;
 }
 
-export function BuildingPanel({ selectedBuilding, mode }: BuildingPanelProps) {
+function formatDeltaPct(value: number): string {
+  return `${value > 0 ? "+" : ""}${value.toFixed(1)}%`;
+}
+
+export function BuildingPanel({ selectedBuilding, mode, diagnosisRow }: BuildingPanelProps) {
   const [monthlyRows, setMonthlyRows] = useState<MonthlyUsageChartRow[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -175,10 +183,46 @@ export function BuildingPanel({ selectedBuilding, mode }: BuildingPanelProps) {
               </p>
             </div>
             <span className="shrink-0 border border-slate-700 bg-slate-900 px-2 py-1 text-xs text-slate-400">
-              {mode === "potential" ? "옥상 잠재량" : "사용량"}
+              {mode === "potential" ? "옥상 잠재량" : mode === "diagnosis" ? "실시간 진단" : "사용량"}
             </span>
           </div>
         </header>
+
+        {mode === "diagnosis" && diagnosisRow ? (
+          <section className="border border-sky-400/30 bg-sky-400/10 p-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold text-sky-100">현재 1시간 진단</p>
+                <p className="mt-1 text-xs leading-5 text-sky-100/75">
+                  현재 기상값은 합성 또는 시연용 관측값이며, 운영 전환 시 기상청 ASOS/AWS 필드로 교체 가능합니다.
+                </p>
+              </div>
+              <span className="shrink-0 border border-sky-300/40 px-2 py-1 text-xs text-sky-100">
+                {getRealtimeSeverityLabel(diagnosisRow.severity)}
+              </span>
+            </div>
+            <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+              <div className="border border-slate-700/70 bg-slate-950/50 p-3">
+                <p className="text-xs text-slate-400">현재</p>
+                <p className="mt-1 text-sm font-semibold text-slate-100">
+                  {formatCompactKwh(diagnosisRow.currentKwh)} kWh
+                </p>
+              </div>
+              <div className="border border-slate-700/70 bg-slate-950/50 p-3">
+                <p className="text-xs text-slate-400">유사 평균</p>
+                <p className="mt-1 text-sm font-semibold text-slate-100">
+                  {formatCompactKwh(diagnosisRow.expectedKwh)} kWh
+                </p>
+              </div>
+              <div className="border border-slate-700/70 bg-slate-950/50 p-3">
+                <p className="text-xs text-slate-400">차이율</p>
+                <p className="mt-1 text-sm font-semibold text-slate-100">
+                  {formatDeltaPct(diagnosisRow.deltaPct)}
+                </p>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <div className="overflow-hidden border border-slate-800 bg-slate-900/50">
           <table className="w-full text-sm">
@@ -207,6 +251,8 @@ export function BuildingPanel({ selectedBuilding, mode }: BuildingPanelProps) {
             {SOLAR_PANEL_KWH_PER_M2_YEAR} kWh/㎡·년 기준 추정
           </p>
         </section>
+
+        <BuildingAIInsight bNo={selectedBuilding.bNo} />
 
         <section className="border border-slate-800 bg-slate-900/55 p-4">
           <div className="flex items-center justify-between gap-3">

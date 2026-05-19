@@ -1,0 +1,3692 @@
+{
+  "metadata": {
+    "datasetId": "campus-re100-realtime-diagnosis-demo",
+    "synthetic": true,
+    "prototype": true,
+    "generatedFrom": "campus_re100_hourly_demo",
+    "generatedAt": "2026-05-16T00:00:00+09:00",
+    "timestamp": "2026-04-30T14:00:00+09:00",
+    "timezone": "Asia/Seoul",
+    "intervalMinutes": 60,
+    "disclaimerKo": "실제 계량값이 아니라 월별 총량 보존 시간별 합성 데이터에서 추출한 실시간 진단 데모입니다.",
+    "sourceMetadata": {
+      "datasetId": "campus-re100-hourly-electricity",
+      "randomSeed": 20260516,
+      "method": "synthetic_monthly_disaggregation"
+    }
+  },
+  "weather": {
+    "timestamp": "2026-04-30T14:00:00+09:00",
+    "temperatureC": 20.3,
+    "humidityPct": 53,
+    "precipitationMm": 0,
+    "windSpeedMs": 3.7,
+    "windDirectionDeg": 278,
+    "solarRadiationWm2": 411,
+    "cloudCoverPct": 60,
+    "weatherType": "partly_cloudy",
+    "source": "synthetic_weather"
+  },
+  "campus": {
+    "buildingCount": 96,
+    "currentKwh": 3503.2,
+    "expectedKwh": 3388.9,
+    "deltaKwh": 114.3,
+    "deltaPct": 3.4,
+    "severity": "normal",
+    "criticalCount": 3,
+    "highCount": 15,
+    "normalCount": 72,
+    "lowCount": 6
+  },
+  "rows": [
+    {
+      "bNo": "G48",
+      "bName": "일휴당",
+      "district": "G구역",
+      "bUse": "박물관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.2,
+      "expectedKwh": 0.1,
+      "deltaKwh": 0.1,
+      "deltaPct": 100,
+      "demandKw": 0.2,
+      "severity": "critical",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G47",
+      "bName": "경주맞배집",
+      "district": "G구역",
+      "bUse": "박물관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.3,
+      "expectedKwh": 0.2,
+      "deltaKwh": 0.1,
+      "deltaPct": 50,
+      "demandKw": 0.3,
+      "severity": "critical",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G49",
+      "bName": "쌍송정",
+      "district": "G구역",
+      "bUse": "박물관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.4,
+      "expectedKwh": 0.3,
+      "deltaKwh": 0.1,
+      "deltaPct": 33.3,
+      "demandKw": 0.4,
+      "severity": "critical",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "B01",
+      "bName": "노천강당",
+      "district": "B구역",
+      "bUse": "관람집회시설,동아리",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 32.9,
+      "expectedKwh": 27.4,
+      "deltaKwh": 5.5,
+      "deltaPct": 20.1,
+      "demandKw": 34.6,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 25.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 27.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 24.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G45",
+      "bName": "민속촌해우소",
+      "district": "G구역",
+      "bUse": "화장실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.6,
+      "expectedKwh": 0.5,
+      "deltaKwh": 0.1,
+      "deltaPct": 20,
+      "demandKw": 0.6,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C06",
+      "bName": "야구부실내연습장",
+      "district": "C구역",
+      "bUse": "연습실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 3.1,
+      "expectedKwh": 2.6,
+      "deltaKwh": 0.5,
+      "deltaPct": 19.2,
+      "demandKw": 3.3,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 2.4,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 2.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 2.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A14",
+      "bName": "씨름장",
+      "district": "A구역",
+      "bUse": "체육관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 1.9,
+      "expectedKwh": 1.6,
+      "deltaKwh": 0.3,
+      "deltaPct": 18.7,
+      "demandKw": 2,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 1.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 1.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 1.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A04",
+      "bName": "박물관",
+      "district": "A구역",
+      "bUse": "전시실,회의실,사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 55.5,
+      "expectedKwh": 46.9,
+      "deltaKwh": 8.6,
+      "deltaPct": 18.3,
+      "demandKw": 59.4,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 48.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 44.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 44.6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G42",
+      "bName": "까치구멍집",
+      "district": "G구역",
+      "bUse": "박물관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.7,
+      "expectedKwh": 0.6,
+      "deltaKwh": 0.1,
+      "deltaPct": 16.7,
+      "demandKw": 0.7,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.6,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.6,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A24",
+      "bName": "예술대학 세라믹 실기동",
+      "district": "A구역",
+      "bUse": "실기실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 5.7,
+      "expectedKwh": 4.9,
+      "deltaKwh": 0.8,
+      "deltaPct": 16.3,
+      "demandKw": 6.2,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 4.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 4.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 2.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G17",
+      "bName": "풍동실험실",
+      "district": "G구역",
+      "bUse": "실험실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 10.8,
+      "expectedKwh": 9.4,
+      "deltaKwh": 1.4,
+      "deltaPct": 14.9,
+      "demandKw": 12.1,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 8.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 6.6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A11",
+      "bName": "예술대학 심포니홀",
+      "district": "A구역",
+      "bUse": "음악 연습실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 10.4,
+      "expectedKwh": 9.1,
+      "deltaKwh": 1.3,
+      "deltaPct": 14.3,
+      "demandKw": 11.4,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 9.4,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 9.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 8.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A29",
+      "bName": "독도자연생태온실",
+      "district": "A구역",
+      "bUse": "온실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 4.1,
+      "expectedKwh": 3.6,
+      "deltaKwh": 0.5,
+      "deltaPct": 13.9,
+      "demandKw": 4.4,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 2.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E24",
+      "bName": "화공관",
+      "district": "E구역",
+      "bUse": "실험실,연구실,강의실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 80,
+      "expectedKwh": 70.3,
+      "deltaKwh": 9.7,
+      "deltaPct": 13.8,
+      "demandKw": 85.9,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 69.6,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 62.8,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 49.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "B07",
+      "bName": "이희건기념관",
+      "district": "B구역",
+      "bUse": "체육관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 6.9,
+      "expectedKwh": 6.1,
+      "deltaKwh": 0.8,
+      "deltaPct": 13.1,
+      "demandKw": 7.5,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 6.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 6.6,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 5.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D05",
+      "bName": "생활관E동",
+      "district": "D구역",
+      "bUse": "기숙실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 12.4,
+      "expectedKwh": 11,
+      "deltaKwh": 1.4,
+      "deltaPct": 12.7,
+      "demandKw": 13.1,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 9.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 10.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 10.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E05",
+      "bName": "천마체육관",
+      "district": "E구역",
+      "bUse": "종합구기장,무용실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 18.2,
+      "expectedKwh": 16.2,
+      "deltaKwh": 2,
+      "deltaPct": 12.3,
+      "demandKw": 19.1,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 17.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 16.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 15.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A08",
+      "bName": "사범대학",
+      "district": "A구역",
+      "bUse": "강의실,사무실,강당",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 29.4,
+      "expectedKwh": 26.2,
+      "deltaKwh": 3.2,
+      "deltaPct": 12.2,
+      "demandKw": 31.7,
+      "severity": "high",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 25.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 27.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 24.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C07",
+      "bName": "승리관",
+      "district": "C구역",
+      "bUse": "운동부숙소",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 9.8,
+      "expectedKwh": 8.8,
+      "deltaKwh": 1,
+      "deltaPct": 11.4,
+      "demandKw": 10.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 8.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 8.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A13",
+      "bName": "필승관",
+      "district": "A구역",
+      "bUse": "유도,레슬링연습장",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 7.1,
+      "expectedKwh": 6.4,
+      "deltaKwh": 0.7,
+      "deltaPct": 10.9,
+      "demandKw": 7.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 6.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 6.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C25",
+      "bName": "연대본부 및 노동조합",
+      "district": "C구역",
+      "bUse": "행정실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 5.2,
+      "expectedKwh": 4.7,
+      "deltaKwh": 0.5,
+      "deltaPct": 10.6,
+      "demandKw": 5.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 4.6,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 4.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 1.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G13",
+      "bName": "로봇관",
+      "district": "G구역",
+      "bUse": "연구.세미나.실험실,기계실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 40.9,
+      "expectedKwh": 37.1,
+      "deltaKwh": 3.8,
+      "deltaPct": 10.2,
+      "demandKw": 44.1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 35.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 35.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 24.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F24",
+      "bName": "과학도서관",
+      "district": "F구역",
+      "bUse": "도서관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 132,
+      "expectedKwh": 119.9,
+      "deltaKwh": 12.1,
+      "deltaPct": 10.1,
+      "demandKw": 141.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 117.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 116.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 89.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G41",
+      "bName": "구계서원",
+      "district": "G구역",
+      "bUse": "박물관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 1.1,
+      "expectedKwh": 1,
+      "deltaKwh": 0.1,
+      "deltaPct": 10,
+      "demandKw": 1.2,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 1.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A07",
+      "bName": "예술대학 미술관",
+      "district": "A구역",
+      "bUse": "강의실,실기실,사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 35.4,
+      "expectedKwh": 32.2,
+      "deltaKwh": 3.2,
+      "deltaPct": 9.9,
+      "demandKw": 37,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 36.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 37.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 31.6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D06",
+      "bName": "생활관F동",
+      "district": "D구역",
+      "bUse": "기숙시설",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 18.9,
+      "expectedKwh": 17.2,
+      "deltaKwh": 1.7,
+      "deltaPct": 9.9,
+      "demandKw": 20.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 14.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 13.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 15.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F28",
+      "bName": "생명응용과학대제2실험동",
+      "district": "F구역",
+      "bUse": "실험실,연구실,강의실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 45,
+      "expectedKwh": 41,
+      "deltaKwh": 4,
+      "deltaPct": 9.8,
+      "demandKw": 49.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 37.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 40.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 28.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G04",
+      "bName": "대학원/법학전문대학원",
+      "district": "G구역",
+      "bUse": "강의실, 사무실, 연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 53.8,
+      "expectedKwh": 49.1,
+      "deltaKwh": 4.7,
+      "deltaPct": 9.6,
+      "demandKw": 58.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 51.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 50.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 35.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D02",
+      "bName": "생활관B동",
+      "district": "D구역",
+      "bUse": "기숙실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 12.8,
+      "expectedKwh": 11.7,
+      "deltaKwh": 1.1,
+      "deltaPct": 9.4,
+      "demandKw": 13.4,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 10,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 10.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 11.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A17",
+      "bName": "Y-STAR 경산 청년창의창작소",
+      "district": "A구역",
+      "bUse": "HALL, 작업실, 스튜디오",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 13.3,
+      "expectedKwh": 12.2,
+      "deltaKwh": 1.1,
+      "deltaPct": 9,
+      "demandKw": 14.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 12,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 12.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 12,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C04",
+      "bName": "AI스마트교육센터",
+      "district": "C구역",
+      "bUse": "교육시설",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 18.5,
+      "expectedKwh": 17,
+      "deltaKwh": 1.5,
+      "deltaPct": 8.8,
+      "demandKw": 20.9,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 16.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 17.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 12.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D01",
+      "bName": "생활관A동",
+      "district": "D구역",
+      "bUse": "기숙실,식당휴게실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 11.1,
+      "expectedKwh": 10.2,
+      "deltaKwh": 0.9,
+      "deltaPct": 8.8,
+      "demandKw": 12.1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 8.8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 8.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 9.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A01",
+      "bName": "천마지문",
+      "district": "A구역",
+      "bUse": "정문",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 1.3,
+      "expectedKwh": 1.2,
+      "deltaKwh": 0.1,
+      "deltaPct": 8.3,
+      "demandKw": 1.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 1.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 1.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.8,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E22",
+      "bName": "전기관",
+      "district": "E구역",
+      "bUse": "강의실,연구실,실험실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 96.6,
+      "expectedKwh": 89.2,
+      "deltaKwh": 7.4,
+      "deltaPct": 8.3,
+      "demandKw": 108.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 86.8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 86.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 65.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E29",
+      "bName": "기계관",
+      "district": "E구역",
+      "bUse": "실험실,연구실,사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 148.8,
+      "expectedKwh": 137.4,
+      "deltaKwh": 11.4,
+      "deltaPct": 8.3,
+      "demandKw": 165.9,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 132,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 132,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 96.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G43",
+      "bName": "의인정사",
+      "district": "G구역",
+      "bUse": "박물관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 1.3,
+      "expectedKwh": 1.2,
+      "deltaKwh": 0.1,
+      "deltaPct": 8.3,
+      "demandKw": 1.4,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 1.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 1.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 1.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C01",
+      "bName": "본부본관",
+      "district": "C구역",
+      "bUse": "사무실(행정실)",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 50.4,
+      "expectedKwh": 46.6,
+      "deltaKwh": 3.8,
+      "deltaPct": 8.2,
+      "demandKw": 56.9,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 51,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 53,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 15,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F22",
+      "bName": "제2과학관",
+      "district": "F구역",
+      "bUse": "실험실,연구실,강의실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 46.3,
+      "expectedKwh": 42.9,
+      "deltaKwh": 3.4,
+      "deltaPct": 7.9,
+      "demandKw": 51.4,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 42.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 43.6,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 30.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G02",
+      "bName": "생활과학대학별관",
+      "district": "G구역",
+      "bUse": "강의실,실험실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 32.7,
+      "expectedKwh": 30.3,
+      "deltaKwh": 2.4,
+      "deltaPct": 7.9,
+      "demandKw": 35.1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 27.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 30.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 20.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A25",
+      "bName": "태권도장",
+      "district": "A구역",
+      "bUse": "태권도장",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 1.4,
+      "expectedKwh": 1.3,
+      "deltaKwh": 0.1,
+      "deltaPct": 7.7,
+      "demandKw": 1.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 1.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 1.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 1.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E02",
+      "bName": "천마아트센터",
+      "district": "E구역",
+      "bUse": "공연장",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 80.8,
+      "expectedKwh": 75.3,
+      "deltaKwh": 5.5,
+      "deltaPct": 7.3,
+      "demandKw": 83.7,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 69.4,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 70.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 63.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E26",
+      "bName": "수리실험동",
+      "district": "E구역",
+      "bUse": "실험실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 5.9,
+      "expectedKwh": 5.5,
+      "deltaKwh": 0.4,
+      "deltaPct": 7.3,
+      "demandKw": 6.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 5.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 5.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 3.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G12",
+      "bName": "창업보육센터",
+      "district": "G구역",
+      "bUse": "창업보육센터",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 62.3,
+      "expectedKwh": 58.1,
+      "deltaKwh": 4.2,
+      "deltaPct": 7.2,
+      "demandKw": 69.2,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 53,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 55,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 41,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D08",
+      "bName": "생활관H동",
+      "district": "D구역",
+      "bUse": "기숙사",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 19.8,
+      "expectedKwh": 18.5,
+      "deltaKwh": 1.3,
+      "deltaPct": 7,
+      "demandKw": 21.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 17.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 16.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 18.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F23",
+      "bName": "제3과학관",
+      "district": "F구역",
+      "bUse": "교육연구시설",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 52.2,
+      "expectedKwh": 49,
+      "deltaKwh": 3.2,
+      "deltaPct": 6.5,
+      "demandKw": 57.7,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 50,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 49.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 38.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F03",
+      "bName": "건축관",
+      "district": "F구역",
+      "bUse": "강의실,실험실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 76.5,
+      "expectedKwh": 71.9,
+      "deltaKwh": 4.6,
+      "deltaPct": 6.4,
+      "demandKw": 86,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 70.8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 78.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 54.6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F21",
+      "bName": "제1과학관",
+      "district": "F구역",
+      "bUse": "실험실,강의실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 131.3,
+      "expectedKwh": 123.4,
+      "deltaKwh": 7.9,
+      "deltaPct": 6.4,
+      "demandKw": 144.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 120.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 119,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 84.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G11",
+      "bName": "CRC",
+      "district": "G구역",
+      "bUse": "LED-IT융합산업연구센터",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 74.5,
+      "expectedKwh": 70,
+      "deltaKwh": 4.5,
+      "deltaPct": 6.4,
+      "demandKw": 83.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 71,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 66.8,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 50.6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G01",
+      "bName": "생활과학대학본관",
+      "district": "G구역",
+      "bUse": "강의실,실험실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 63.8,
+      "expectedKwh": 60.1,
+      "deltaKwh": 3.7,
+      "deltaPct": 6.2,
+      "demandKw": 71.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 59.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 59.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 18.8,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D21",
+      "bName": "생활관(향토관,기독생활관)",
+      "district": "D구역",
+      "bUse": "기숙실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 62.9,
+      "expectedKwh": 59.3,
+      "deltaKwh": 3.6,
+      "deltaPct": 6.1,
+      "demandKw": 67.4,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 50.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 54.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 57.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F05",
+      "bName": "공과대학강당",
+      "district": "F구역",
+      "bUse": "강의실,영사실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 3.5,
+      "expectedKwh": 3.3,
+      "deltaKwh": 0.2,
+      "deltaPct": 6.1,
+      "demandKw": 3.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 3.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 3.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 3.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F07",
+      "bName": "건설관",
+      "district": "F구역",
+      "bUse": "실험실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 59.4,
+      "expectedKwh": 56.2,
+      "deltaKwh": 3.2,
+      "deltaPct": 5.7,
+      "demandKw": 66,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 55.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 54.6,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 39.8,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A16",
+      "bName": "벤처창업관",
+      "district": "A구역",
+      "bUse": "강의실, 연구실, 실험실, 사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 20.1,
+      "expectedKwh": 19.1,
+      "deltaKwh": 1,
+      "deltaPct": 5.2,
+      "demandKw": 21.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 18.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 18,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 13.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E04",
+      "bName": "체조장",
+      "district": "E구역",
+      "bUse": "체조장,사무실,기재실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 7.2,
+      "expectedKwh": 6.9,
+      "deltaKwh": 0.3,
+      "deltaPct": 4.3,
+      "demandKw": 7.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 7.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 7.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 6.6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F26",
+      "bName": "생명응용과학대 제1실험동",
+      "district": "F구역",
+      "bUse": "강의실,실험실,연구실 \n\t\t\t\t\t\t\t\t\t- 생명공학부, 식품외식학부",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 39.3,
+      "expectedKwh": 37.7,
+      "deltaKwh": 1.6,
+      "deltaPct": 4.2,
+      "demandKw": 43.7,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 32.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 34.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 26.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "B02",
+      "bName": "상경관",
+      "district": "B구역",
+      "bUse": "강의실,사무실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 147.6,
+      "expectedKwh": 142.1,
+      "deltaKwh": 5.5,
+      "deltaPct": 3.9,
+      "demandKw": 162.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 135.4,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 145.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 98.8,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F04",
+      "bName": "정보전산원",
+      "district": "F구역",
+      "bUse": "사무실,실습실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 28.8,
+      "expectedKwh": 27.8,
+      "deltaKwh": 1,
+      "deltaPct": 3.6,
+      "demandKw": 31.1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 28.6,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 27.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 20.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G16",
+      "bName": "자동차관",
+      "district": "G구역",
+      "bUse": "강의실, 연구실, 실습실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 71.4,
+      "expectedKwh": 68.9,
+      "deltaKwh": 2.5,
+      "deltaPct": 3.6,
+      "demandKw": 77.2,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 65.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 70.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 47.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D03",
+      "bName": "생활관C동",
+      "district": "D구역",
+      "bUse": "기숙실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 11.7,
+      "expectedKwh": 11.3,
+      "deltaKwh": 0.4,
+      "deltaPct": 3.5,
+      "demandKw": 12.7,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 10.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 10.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 10.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "B04",
+      "bName": "중앙도서관",
+      "district": "B구역",
+      "bUse": "도서관,연구실,연구소",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 285.5,
+      "expectedKwh": 276.4,
+      "deltaKwh": 9.1,
+      "deltaPct": 3.3,
+      "demandKw": 310.7,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 250.6,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 252.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 212.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F06",
+      "bName": "정보통신연구소",
+      "district": "F구역",
+      "bUse": "연구소",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 3.5,
+      "expectedKwh": 3.4,
+      "deltaKwh": 0.1,
+      "deltaPct": 2.9,
+      "demandKw": 3.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 3.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 3.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 2.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A10",
+      "bName": "예술대학 음악관",
+      "district": "A구역",
+      "bUse": "강의실,연구실,실기실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 54.5,
+      "expectedKwh": 53.2,
+      "deltaKwh": 1.3,
+      "deltaPct": 2.4,
+      "demandKw": 56.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 56.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 57.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 52.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D07",
+      "bName": "생활관G동",
+      "district": "D구역",
+      "bUse": "기숙사",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 21.5,
+      "expectedKwh": 21,
+      "deltaKwh": 0.5,
+      "deltaPct": 2.4,
+      "demandKw": 23.2,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 19.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 20.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 21.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A06",
+      "bName": "예술대학 디자인관",
+      "district": "A구역",
+      "bUse": "사무실,실기실,강의실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 50.7,
+      "expectedKwh": 49.7,
+      "deltaKwh": 1,
+      "deltaPct": 2,
+      "demandKw": 54.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 51,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 47.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 25.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A05",
+      "bName": "학생지원센터",
+      "district": "A구역",
+      "bUse": "사무실,보건소,연구소",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 42,
+      "expectedKwh": 41.2,
+      "deltaKwh": 0.8,
+      "deltaPct": 1.9,
+      "demandKw": 46.1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 40.3,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 37.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 28.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "B05",
+      "bName": "사회과학관",
+      "district": "B구역",
+      "bUse": "강의실,사무실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 91.5,
+      "expectedKwh": 89.9,
+      "deltaKwh": 1.6,
+      "deltaPct": 1.8,
+      "demandKw": 100.2,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 91.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 92.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 65.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C28",
+      "bName": "학군단",
+      "district": "C구역",
+      "bUse": "사무실,무기고,강의실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 22.1,
+      "expectedKwh": 21.7,
+      "deltaKwh": 0.4,
+      "deltaPct": 1.8,
+      "demandKw": 23.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 23.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 22.8,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 10.6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G15",
+      "bName": "생산기술연구원",
+      "district": "G구역",
+      "bUse": "사무실,실험실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 40.5,
+      "expectedKwh": 39.8,
+      "deltaKwh": 0.7,
+      "deltaPct": 1.8,
+      "demandKw": 44.9,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 37.8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 37.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 27.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C03",
+      "bName": "천마관",
+      "district": "C구역",
+      "bUse": "강의실,사무실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 87.8,
+      "expectedKwh": 86.7,
+      "deltaKwh": 1.1,
+      "deltaPct": 1.3,
+      "demandKw": 97.1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 92.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 84.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 68,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C02",
+      "bName": "외국어교육원",
+      "district": "C구역",
+      "bUse": "어학실습실, 강의실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 46.2,
+      "expectedKwh": 45.7,
+      "deltaKwh": 0.5,
+      "deltaPct": 1.1,
+      "demandKw": 49.4,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 47.8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 45.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 35.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G14",
+      "bName": "중앙기기센터",
+      "district": "G구역",
+      "bUse": "연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 33.7,
+      "expectedKwh": 33.5,
+      "deltaKwh": 0.2,
+      "deltaPct": 0.6,
+      "demandKw": 37.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 32.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 33.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 24.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F27",
+      "bName": "생명응용과학대본관",
+      "district": "F구역",
+      "bUse": "강의실,사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 20.1,
+      "expectedKwh": 20,
+      "deltaKwh": 0.1,
+      "deltaPct": 0.5,
+      "demandKw": 22.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 21.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 22.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 5.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A09",
+      "bName": "중앙테니스장",
+      "district": "A구역",
+      "bUse": "관리실,샤워실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.1,
+      "expectedKwh": 0.1,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 0.2,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A27",
+      "bName": "탁구장",
+      "district": "A구역",
+      "bUse": "관리실,샤워실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.9,
+      "expectedKwh": 0.9,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.8,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C26",
+      "bName": "출판부",
+      "district": "C구역",
+      "bUse": "행정실,창고",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 4.4,
+      "expectedKwh": 4.4,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 4.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 4.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 1.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C31",
+      "bName": "교직원테니스장",
+      "district": "C구역",
+      "bUse": "관리실,샤워실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.2,
+      "expectedKwh": 0.2,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 0.2,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.2,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.1,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E23",
+      "bName": "섬유관",
+      "district": "E구역",
+      "bUse": "실험실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 58.4,
+      "expectedKwh": 58.4,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 62.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 55.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 52.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 42.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G18",
+      "bName": "제2공장형실습장",
+      "district": "G구역",
+      "bUse": "",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.7,
+      "expectedKwh": 0.7,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 0.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.7,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G19",
+      "bName": "안전교육체험장",
+      "district": "G구역",
+      "bUse": "",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.9,
+      "expectedKwh": 0.9,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 1,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G46",
+      "bName": "화산서당",
+      "district": "G구역",
+      "bUse": "박물관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.5,
+      "expectedKwh": 0.5,
+      "deltaKwh": 0,
+      "deltaPct": 0,
+      "demandKw": 0.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C21",
+      "bName": "학사민원실",
+      "district": "C구역",
+      "bUse": "사무실(행정실)",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 23.1,
+      "expectedKwh": 23.2,
+      "deltaKwh": -0.1,
+      "deltaPct": -0.4,
+      "demandKw": 25.6,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 23.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 24.8,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 6.5,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G07",
+      "bName": "약학관",
+      "district": "G구역",
+      "bUse": "강의실, 연구실, 실험실, 사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 88.6,
+      "expectedKwh": 89.1,
+      "deltaKwh": -0.5,
+      "deltaPct": -0.6,
+      "demandKw": 97.8,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 87.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 89.1,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 67.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D09",
+      "bName": "생활관식당",
+      "district": "D구역",
+      "bUse": "식당,작업장",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 10.6,
+      "expectedKwh": 10.7,
+      "deltaKwh": -0.1,
+      "deltaPct": -0.9,
+      "demandKw": 10.9,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 9.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 10.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 9.8,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D10",
+      "bName": "고시원",
+      "district": "D구역",
+      "bUse": "기숙실,휴게실,사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 12.9,
+      "expectedKwh": 13.1,
+      "deltaKwh": -0.2,
+      "deltaPct": -1.5,
+      "demandKw": 13.9,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 13,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 12,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 13.3,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "D04",
+      "bName": "생활관D동",
+      "district": "D구역",
+      "bUse": "기숙실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 6,
+      "expectedKwh": 6.1,
+      "deltaKwh": -0.1,
+      "deltaPct": -1.6,
+      "demandKw": 6.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 5.6,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 5.9,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 6,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C27",
+      "bName": "제2인문관",
+      "district": "C구역",
+      "bUse": "교육연구시설(강의,실습실)",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 23.3,
+      "expectedKwh": 23.9,
+      "deltaKwh": -0.6,
+      "deltaPct": -2.5,
+      "demandKw": 25.7,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 23,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 23.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 17.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "G03",
+      "bName": "법학전문도서관",
+      "district": "G구역",
+      "bUse": "법학전문도서관",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 70.9,
+      "expectedKwh": 72.9,
+      "deltaKwh": -2,
+      "deltaPct": -2.7,
+      "demandKw": 77.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 71,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 72.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 57.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "B03",
+      "bName": "인문관",
+      "district": "B구역",
+      "bUse": "강의실,사무실,연구실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 102.6,
+      "expectedKwh": 106.5,
+      "deltaKwh": -3.9,
+      "deltaPct": -3.7,
+      "demandKw": 111.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 109.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 111.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 79.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F29",
+      "bName": "생명응용과학대제3실험동",
+      "district": "F구역",
+      "bUse": "실험실,연구실,강의실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 46.7,
+      "expectedKwh": 48.6,
+      "deltaKwh": -1.9,
+      "deltaPct": -3.9,
+      "demandKw": 50.3,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 49.8,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 48.7,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 35.9,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E21",
+      "bName": "IT관",
+      "district": "E구역",
+      "bUse": "강의실,사무실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 44.3,
+      "expectedKwh": 47.1,
+      "deltaKwh": -2.8,
+      "deltaPct": -5.9,
+      "demandKw": 49.5,
+      "severity": "normal",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 52.4,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 49.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 24.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "C24",
+      "bName": "명상실",
+      "district": "C구역",
+      "bUse": "명상실",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 0.5,
+      "expectedKwh": 0.6,
+      "deltaKwh": -0.1,
+      "deltaPct": -16.7,
+      "demandKw": 0.6,
+      "severity": "low",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 0.5,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 0.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A02",
+      "bName": "국제교류센터",
+      "district": "A구역",
+      "bUse": "사무실, 매장",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 28.7,
+      "expectedKwh": 34.5,
+      "deltaKwh": -5.8,
+      "deltaPct": -16.8,
+      "demandKw": 30.3,
+      "severity": "low",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 20.1,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 21.3,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 12.7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "A12",
+      "bName": "시설관리지원센터",
+      "district": "A구역",
+      "bUse": "교육연구및복지시설(작업장)",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 6.1,
+      "expectedKwh": 8,
+      "deltaKwh": -1.9,
+      "deltaPct": -23.7,
+      "demandKw": 6.4,
+      "severity": "low",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 5.4,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 5.2,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 3.4,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "B06",
+      "bName": "학생회관",
+      "district": "B구역",
+      "bUse": "학생회,식당,써클룸",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 16.4,
+      "expectedKwh": 22.9,
+      "deltaKwh": -6.5,
+      "deltaPct": -28.4,
+      "demandKw": 17.8,
+      "severity": "low",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 16.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 16.8,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 11.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "E28",
+      "bName": "소재관",
+      "district": "E구역",
+      "bUse": "교육연구 및 복지시설",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 69.1,
+      "expectedKwh": 97.1,
+      "deltaKwh": -28,
+      "deltaPct": -28.8,
+      "demandKw": 75.7,
+      "severity": "low",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 65.6,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 62.6,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 38.2,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    },
+    {
+      "bNo": "F25",
+      "bName": "자연계식당",
+      "district": "F구역",
+      "bUse": "식당,매장",
+      "timestamp": "2026-04-30T14:00:00+09:00",
+      "currentKwh": 11.5,
+      "expectedKwh": 16.3,
+      "deltaKwh": -4.8,
+      "deltaPct": -29.4,
+      "demandKw": 12.2,
+      "severity": "low",
+      "quality": "normal",
+      "sampleCount": 140,
+      "similarSamples": [
+        {
+          "timestamp": "2025-10-15T14:00:00+09:00",
+          "kwh": 11.9,
+          "temperatureC": 19.5,
+          "humidityPct": 53,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-17T14:00:00+09:00",
+          "kwh": 11.4,
+          "temperatureC": 19.5,
+          "humidityPct": 54,
+          "precipitationMm": 0
+        },
+        {
+          "timestamp": "2025-10-03T14:00:00+09:00",
+          "kwh": 7,
+          "temperatureC": 19.8,
+          "humidityPct": 56,
+          "precipitationMm": 0
+        }
+      ]
+    }
+  ]
+}

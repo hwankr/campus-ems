@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build:realtime-demo": "node scripts/build-realtime-diagnosis-demo.mjs",
+    "build:realtime-playback": "node scripts/build-realtime-playback-demo.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
